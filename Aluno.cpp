@@ -49,16 +49,39 @@ void calcularNota(Alunos &aluno){
     }
 }
 
-void ordenarAlunos(){
+void ordenarAlunos(Alunos aluno){
+    int r;
+    char aux[30];
 
+    for(int i=0; i<aluno.lenght; i++){
+        for(int j=0; j<aluno.lenght, j++){
+            r = strcmp(aluno[i].nome, aluno[j].nome);
+            if(r > 0){
+                strcpy(aux, aluno[i].nome);
+                strcpy(aluno[i].nome, aluno[j].nome);
+                strcpy(aluno[j].nome, aux);
+            }
+        }
+    }
 }
 
 void buscarAluno(){
 
 }
 
-void gerarListaAp(){
+void gerarListaAp(Alunos aluno){
+    int r, count = 0;
 
+    for(int i=0; i<aluno.lenght; i++){
+        r = strcmp(aluno[i].statusAluno, "Aprovado")
+        if(r == 0){
+            printf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            count++;
+        } else{
+            continue;
+        }
+    }
+    printf("\nAlunos aprovados: %d", count);
 }
 
 void gerarListaRep(){
