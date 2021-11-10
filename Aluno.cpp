@@ -42,10 +42,10 @@ void calcularNota(Alunos &aluno){
 
     if(aluno.mf >= 6){
         // aluno aprovado
-        strcpy(aluno.status, "Aprovado");
+        strcpy(aluno.statusAluno, "Aprovado");
     } else {
         //aluno reprovado
-        strcpy(aluno.status, "Reprovado");
+        strcpy(aluno.statusAluno, "Reprovado");
     }
 }
 
