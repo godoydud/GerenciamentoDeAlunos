@@ -85,5 +85,16 @@ void gerarListaAp(Alunos aluno){
 }
 
 void gerarListaRep(){
+    int r, count = 0;
 
+    for(int i=0; i<aluno.lenght; i++){
+        r = strcmp(aluno[i].statusAluno, "Reprovado")
+        if(r == 0){
+            printf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            count++;
+        } else{
+            continue;
+        }
+    }
+    printf("\nAlunos reprovados: %d", count);
 }
