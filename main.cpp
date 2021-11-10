@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "Aluno.cpp"
 #include "Arquivo.cpp"
+#include "arquivo.h"
 
 int main()
 {
@@ -15,11 +16,11 @@ int main()
         // Menu de opcoes
         printf("----- Menu -----\n");
         printf("[1] CADASTRAR ALUNO\n");
-        printf("[2] BUSCAR ALUNO\n");
-        printf("[3] LER ARQUIVO DE LISTAGEM DE ALUNOS\n");
-        printf("[4] GERAR LISTA APROVADO\n");
-        printf("[5] GERAR LISTA REPROVADOS\n");
-        printf("[6] FECHAR PROGRAMA\n");
+        printf("[2] BUSCAR ALUNO\n"); // verificar
+        printf("[3] LER ARQUIVO DE LISTAGEM DE ALUNOS\n"); // verificar
+        printf("[4] GERAR LISTA APROVADO\n"); // verificar
+        printf("[5] GERAR LISTA REPROVADOS\n"); // verificar
+        printf("[6] FECHAR PROGRAMA\n"); //
 
 
         // Ler opção
