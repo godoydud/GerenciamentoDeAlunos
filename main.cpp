@@ -18,23 +18,22 @@ int main()
         printf("(1) CADASTRAR ALUNO\n");
         printf("(2) BUSCAR ALUNO\n");                      // verificar
         printf("(3) LER ARQUIVO DE LISTAGEM DE ALUNOS\n"); // verificar
-        printf("(4) GERAR LISTA APROVADO\n");              
-        printf("(5) GERAR LISTA REPROVADOS\n");            
-        printf("(6) FECHAR PROGRAMA\n");                   // verificar
+        printf("(4) GERAR LISTA APROVADO\n");
+        printf("(5) GERAR LISTA REPROVADOS\n");
+        printf("(6) FECHAR PROGRAMA\n"); // verificar
 
         // Ler opção
         scanf("%d", &op);
-        
 
         if (op == 1)
         {
             cadastrarAluno(aluno, n);
             n++;
         }
-        // else if (op == 2)
-        // {
-        //     ordenarAlunos(aluno, n);
-        // }
+        else if (op == 2)
+        {
+            //buscaraluno
+        }
         // else if (op == 3)
         // {
         //     lerArquivo();

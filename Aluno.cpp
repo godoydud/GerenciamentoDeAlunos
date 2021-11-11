@@ -29,58 +29,72 @@ void cadastrarAluno(Alunos *aluno, int i)
     printf("Insira nota TRABALHO: ");
     scanf("%lf", &aluno[i].trab);
 
-    
-}
-
-void calcularNota(Alunos &aluno)
-{
-    if (aluno.p1 < aluno.po && aluno.p1 < aluno.p2)
+    if (aluno[i].p1 < aluno[i].po && aluno[i].p1 < aluno[i].p2)
     {
-        aluno.auxp1 = aluno.p1;
-        aluno.p1 = aluno.po;
+        aluno[i].auxp1 = aluno[i].p1;
+        aluno[i].p1 = aluno[i].po;
     }
-    else if (aluno.p2 < aluno.po && aluno.p2 < aluno.p1)
+    else if (aluno[i].p2 < aluno[i].po && aluno[i].p2 < aluno[i].p1)
     {
-        aluno.auxp2 = aluno.p2;
-        aluno.p2 = aluno.po;
+        aluno[i].auxp2 = aluno[i].p2;
+        aluno[i].p2 = aluno[i].po;
     }
-    aluno.mf = (0.35 * aluno.p1) + (0.35 * aluno.p2) + (0.3 * aluno.trab);
+    aluno[i].mf = (0.35 * aluno[i].p1) + (0.35 * aluno[i].p2) + (0.3 * aluno[i].trab);
 
-    if (aluno.mf >= 6)
+    if (aluno[i].mf >= 6)
     {
         // aluno aprovado
-        strcpy(aluno.statusAluno, "Aprovado");
+        strcpy(aluno[i].statusAluno, "Aprovado");
     }
     else
     {
         //aluno reprovado
-        strcpy(aluno.statusAluno, "Reprovado");
+        strcpy(aluno[i].statusAluno, "Reprovado");
     }
-    
 }
 
-// void ordenarAlunos(Alunos *aluno, int n)
-// {
-//     int menor, aux = 0;
-//    // int len = sizeof(aluno) / sizeof(aluno[0]);
-//     for (int i = 0; i < n; i++)
-//     {
-//         for (int j = i + 1; j < n; j++)
-//         {
-//             if (strcmp(aluno[i].nome, aluno[j].nome > 0 *))
-//             {
-//                 menor = aluno[j];
-//             }
-//         }
-//         if (i !=menor)
-//         {
-//             aux = aluno[i];
-//             aluno[i] = aluno[menor];
-//             aluno[menor] = aux;
-//         }
-//     }
-//     printf("%s, média final: %.1f, situação: %s\n", aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
-// }
+
+
+void ordenarAlunos(Alunos *aluno, int n)
+{
+    int i, j, min;
+    Alunos aux;
+
+    for (i = 0; i < n - 1; i++)
+    {
+        min = i;
+        for (j = i + 1; j < n - 1; j++)
+        {
+            if (strcmp(aluno[min].nome, aluno[j].nome) < 0)
+            {
+                min = j;
+            }
+            // processo de troca
+            aux = aluno[i];
+            aluno[i] = aluno[min];
+            aluno[min] = aux;
+        }
+    }
+
+    //  int x, y, r;
+    //  char aux[30];
+    //  int len = sizeof(aluno) / sizeof(aluno[0]);
+    //  for (x = 0; x <= len; x++){
+    //      for (y = x+1; y <= len; y++){
+    //          r = strcmp(aluno[x].nome, aluno[y].nome);
+    //          if(r > 0){
+    //              strcpy(aux, aluno[x].nome);
+    //              strcpy(aluno[x].nome, aluno[y].nome);
+    //              strcpy(aluno[y].nome, aux);
+    //          }
+    //      }
+    //  }
+    // printf("%d", len);
+    // printf("Nomes ordenados\n");
+    //  for(x = 0; x <= len; x++){
+    //      puts(aluno[x].nome);
+    //  }
+}
 
 // void buscarAluno()
 // {
