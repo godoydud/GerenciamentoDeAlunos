@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include "Aluno.cpp"
-#include "Arquivo.cpp"
 #include "arquivo.h"
 
 int main()
@@ -34,10 +32,10 @@ int main()
         {
             //buscaraluno
         }
-        // else if (op == 3)
-        // {
-        //     lerArquivo();
-        // }
+        else if (op == 3)
+        {
+            n = lerArquivo(aluno, n);
+        }
         // else if (op == 4)
         // {
         //     gerarListaAp();

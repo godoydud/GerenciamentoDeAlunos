@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
-struct Alunos
-{
-    char nome[30];
-    char rga[10];
-    double p1, p2, po, trab, mf, auxp1, auxp2;
-    char statusAluno[15];
-};
+#include "arquivo.h"
 
 void cadastrarAluno(Alunos *aluno, int i)
 {
@@ -23,11 +16,11 @@ void cadastrarAluno(Alunos *aluno, int i)
     printf("Insira nota PROVA 02: ");
     scanf("%lf", &aluno[i].p2);
 
-    printf("Insira nota PROVA OPTATIVA: ");
-    scanf("%lf", &aluno[i].po);
-
     printf("Insira nota TRABALHO: ");
     scanf("%lf", &aluno[i].trab);
+
+    printf("Insira nota PROVA OPTATIVA: ");
+    scanf("%lf", &aluno[i].po);
 
     if (aluno[i].p1 < aluno[i].po && aluno[i].p1 < aluno[i].p2)
     {
@@ -81,27 +74,27 @@ void ordenarAlunos(Alunos *aluno, int n)
 // {
 // }
 
-void gerarListaAp(Alunos *aluno)
-{
-    ordenarAlunos(aluno);
-    int len = sizeof(aluno);
-    int r, count = 0;
+// void gerarListaAp(Alunos *aluno, int n)
+// {
+//     ordenarAlunos(aluno, n);
+//     int len = sizeof(aluno);
+//     int r, count = 0;
 
-    FILE *arquivo;
+//     FILE *arquivo;
 
-    arquivo = fopen("aprovados.txt", "w");
+//     arquivo = fopen("aprovados.txt", "w");
 
-    for (int i = 0; i < len; i++)
-    {
-        r = strcmp(aluno[i].statusAluno, "Aprovado") if (r == 0)
-        {
-            fprintf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
-            count++;
-        }
-    }
-    fprintf(arquivo, "\nTotal: %d", count);
-    fclose(arquivo);
-}
+//     for (int i = 0; i < len; i++)
+//     {
+//         r = strcmp(aluno[i].statusAluno, "Aprovado") if (r == 0)
+//         {
+//             fprintf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+//             count++;
+//         }
+//     }
+//     fprintf(arquivo, "\nTotal: %d", count);
+//     fclose(arquivo);
+// }
 
 // void gerarListaRep(Alunos *aluno)
 // {
