@@ -75,52 +75,33 @@ void ordenarAlunos(Alunos *aluno, int n)
             aluno[min] = aux;
         }
     }
-
-    //  int x, y, r;
-    //  char aux[30];
-    //  int len = sizeof(aluno) / sizeof(aluno[0]);
-    //  for (x = 0; x <= len; x++){
-    //      for (y = x+1; y <= len; y++){
-    //          r = strcmp(aluno[x].nome, aluno[y].nome);
-    //          if(r > 0){
-    //              strcpy(aux, aluno[x].nome);
-    //              strcpy(aluno[x].nome, aluno[y].nome);
-    //              strcpy(aluno[y].nome, aux);
-    //          }
-    //      }
-    //  }
-    // printf("%d", len);
-    // printf("Nomes ordenados\n");
-    //  for(x = 0; x <= len; x++){
-    //      puts(aluno[x].nome);
-    //  }
 }
 
 // void buscarAluno()
 // {
 // }
 
-// void gerarListaAp(Alunos *aluno)
-// {
-//     ordenarAlunos(aluno);
-//     int len = sizeof(aluno) / sizeof(aluno[0]);
-//     int r, count = 0;
+void gerarListaAp(Alunos *aluno)
+{
+    ordenarAlunos(aluno);
+    int len = sizeof(aluno);
+    int r, count = 0;
 
-//     FILE *arquivo;
+    FILE *arquivo;
 
-//     arquivo = fopen("aprovados.txt", "w");
+    arquivo = fopen("aprovados.txt", "w");
 
-//     for (int i = 0; i < aluno.lenght; i++)
-//     {
-//         r = strcmp(aluno[i].statusAluno, "Aprovado") if (r == 0)
-//         {
-//             fprintf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
-//             count++;
-//         }
-//     }
-//     fprintf(arquivo, "\nTotal: %d", count);
-//     fclose(arquivo);
-// }
+    for (int i = 0; i < len; i++)
+    {
+        r = strcmp(aluno[i].statusAluno, "Aprovado") if (r == 0)
+        {
+            fprintf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            count++;
+        }
+    }
+    fprintf(arquivo, "\nTotal: %d", count);
+    fclose(arquivo);
+}
 
 // void gerarListaRep(Alunos *aluno)
 // {
