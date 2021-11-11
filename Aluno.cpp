@@ -1,100 +1,130 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Alunos{
+struct Alunos
+{
     char nome[30];
     char rga[10];
     double p1, p2, po, trab, mf, auxp1, auxp2;
     char statusAluno[15];
 };
 
-void cadastrarAluno(Alunos aluno){
-    printf("Insira nome do aluno: ")
-    scanf("%[^\n]", &aluno[i].nome);
+void cadastrarAluno(Alunos *aluno, int i)
+{
+    printf("Insira nome do aluno: ");
+    scanf(" %[^\n]", aluno[i].nome);
 
     printf("Insira RGA do aluno: ");
-    scanf("%[^\n]", &aluno[i].rga);
+    scanf(" %[^\n]", aluno[i].rga);
 
     printf("Insira nota PROVA 01: ");
-    scanf("%lf\n", &aluno[i].p1);
+    scanf("%lf", &aluno[i].p1);
 
     printf("Insira nota PROVA 02: ");
-    scanf("%lf\n", &aluno[i].p2);
+    scanf("%lf", &aluno[i].p2);
 
     printf("Insira nota PROVA OPTATIVA: ");
-    scanf("%lf\n", &aluno[i].po);
+    scanf("%lf", &aluno[i].po);
 
     printf("Insira nota TRABALHO: ");
-    scanf("%lf\n", &aluno[i].trab);
+    scanf("%lf", &aluno[i].trab);
 
-    calcularNota(aluno[i]);
+    
 }
 
-void calcularNota(Alunos &aluno){
-    if(aluno.p1 < aluno.po && aluno.p1 < aluno.p2){    
+void calcularNota(Alunos &aluno)
+{
+    if (aluno.p1 < aluno.po && aluno.p1 < aluno.p2)
+    {
         aluno.auxp1 = aluno.p1;
         aluno.p1 = aluno.po;
-    } else if(aluno.p2 < aluno.po && aluno.p2 < aluno.p1){
+    }
+    else if (aluno.p2 < aluno.po && aluno.p2 < aluno.p1)
+    {
         aluno.auxp2 = aluno.p2;
         aluno.p2 = aluno.po;
     }
-     aluno.mf = (0.35 * aluno.p1) + (0.35 * aluno.p2) + (0.3 * aluno.trab);
+    aluno.mf = (0.35 * aluno.p1) + (0.35 * aluno.p2) + (0.3 * aluno.trab);
 
-    if(aluno.mf >= 6){
+    if (aluno.mf >= 6)
+    {
         // aluno aprovado
         strcpy(aluno.statusAluno, "Aprovado");
-    } else {
+    }
+    else
+    {
         //aluno reprovado
         strcpy(aluno.statusAluno, "Reprovado");
     }
+    
 }
 
-void ordenarAlunos(Alunos aluno){
-    int r;
-    char aux[30];
+// void ordenarAlunos(Alunos *aluno, int n)
+// {
+//     int menor, aux = 0;
+//    // int len = sizeof(aluno) / sizeof(aluno[0]);
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (strcmp(aluno[i].nome, aluno[j].nome > 0 *))
+//             {
+//                 menor = aluno[j];
+//             }
+//         }
+//         if (i !=menor)
+//         {
+//             aux = aluno[i];
+//             aluno[i] = aluno[menor];
+//             aluno[menor] = aux;
+//         }
+//     }
+//     printf("%s, média final: %.1f, situação: %s\n", aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
+// }
 
-    for(int i=0; i<aluno.lenght; i++){
-        for(int j=0; j<aluno.lenght, j++){
-            r = strcmp(aluno[i].nome, aluno[j].nome);
-            if(r > 0){
-                strcpy(aux, aluno[i].nome);
-                strcpy(aluno[i].nome, aluno[j].nome);
-                strcpy(aluno[j].nome, aux);
-            }
-        }
-    }
-}
+// void buscarAluno()
+// {
+// }
 
-void buscarAluno(){
+// void gerarListaAp(Alunos *aluno)
+// {
+//     ordenarAlunos(aluno);
+//     int len = sizeof(aluno) / sizeof(aluno[0]);
+//     int r, count = 0;
 
-}
+//     FILE *arquivo;
 
-void gerarListaAp(Alunos aluno){
-    int r, count = 0;
+//     arquivo = fopen("aprovados.txt", "w");
 
-    for(int i=0; i<aluno.lenght; i++){
-        r = strcmp(aluno[i].statusAluno, "Aprovado")
-        if(r == 0){
-            printf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
-            count++;
-        } else{
-            continue;
-        }
-    }
-    printf("\nAlunos aprovados: %d", count);
-}
+//     for (int i = 0; i < aluno.lenght; i++)
+//     {
+//         r = strcmp(aluno[i].statusAluno, "Aprovado") if (r == 0)
+//         {
+//             fprintf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+//             count++;
+//         }
+//     }
+//     fprintf(arquivo, "\nTotal: %d", count);
+//     fclose(arquivo);
+// }
 
-void gerarListaRep(){
-    int r, count = 0;
+// void gerarListaRep(Alunos *aluno)
+// {
+//     ordenarAlunos(aluno);
+//     int len = sizeof(aluno) / sizeof(aluno[0]);
+//     int r, count = 0;
+//     FILE *arquivo;
 
-    for(int i=0; i<aluno.lenght; i++){
-        r = strcmp(aluno[i].statusAluno, "Reprovado")
-        if(r == 0){
-            printf("%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
-            count++;
-        } else{
-            continue;
-        }
-    }
-    printf("\nAlunos reprovados: %d", count);
-}
+//     arquivo = fopen("reprovados.txt", "w");
+
+//     for (int i = 0; i < len; i++)
+//     {
+//         r = strcmp(aluno[i].statusAluno, "Reprovado") if (r == 0)
+//         {
+//             fprintf(arquivo, "%s, %s, %f", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+//             count++;
+//         }
+//     }
+//     fprintf(arquivo, "\nTotal: %d", count);
+//     fclose(arquivo);
+// }

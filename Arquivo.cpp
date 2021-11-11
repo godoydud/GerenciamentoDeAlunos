@@ -1,15 +1,17 @@
-#include <stdio.h>
+// #include <stdio.h>
 
-void lerArquivo(){
+// void lerArquivo()
+// {
 
-}
+// }
 
-void fecharPrograma(){
-    // chamada método de ordenação de alunos
+// void fecharPrograma()
+// {
+//     // chamada método de ordenação de alunos
 
-    // fopen para atual.txt
-    
-    // impressao das informacoes (fprintf)
+//     // fopen para atual.txt
 
-    fclose(arquivo);
-}
+//     // impressao das informacoes (fprintf)
+
+//     fclose(arquivo);
+// }
