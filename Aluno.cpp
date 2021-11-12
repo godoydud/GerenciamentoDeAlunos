@@ -52,23 +52,36 @@ void ordenarAlunos(Alunos *aluno, int n)
 {
     int i, j, min;
     Alunos aux;
+    
 
     for (i = 0; i < n - 1; i++)
     {
         min = i;
-        for (j = i + 1; j < n - 1; j++)
+        for (j = i + 1; j < n; j++)
         {
-            if (strcmp(aluno[min].nome, aluno[j].nome) < 0)
-            {
+            if (strcmp(aluno[min].nome, aluno[j].nome) > 0)
                 min = j;
-            }
-            // processo de troca
-            aux = aluno[i];
-            aluno[i] = aluno[min];
-            aluno[min] = aux;
         }
+        aux = aluno[i];
+        aluno[i] = aluno[min];
+        aluno[min] = aux;
     }
 }
+    
+
+//     for (i = 0; i < n - 1; i++)
+//     {
+//         min = i;
+//         for (j = i + 1; j < n - 1; j++)
+//         {
+//             if (strcmp(aluno[min].nome, aluno[j].nome) > 0)
+//                 min = j;
+//         }
+//         aux = aluno[i];
+//         aluno[i] = aluno[min];
+//         aluno[min] = aux;
+//     }
+// }
 
 // void buscarAluno()
 // {

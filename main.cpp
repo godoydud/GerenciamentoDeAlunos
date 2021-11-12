@@ -30,7 +30,7 @@ int main()
         }
         else if (op == 2)
         {
-            //buscaraluno
+            ordenarAlunos(aluno, n);
         }
         else if (op == 3)
         {
@@ -44,9 +44,9 @@ int main()
         // {
         //     gerarListaRep();
         // }
-        // else if (op == 0)
-        // {
-        //     fecharPrograma();
-        // }
-    } while (op != 0);
+        else if (op == 6)
+        {
+            fecharPrograma(aluno, n);
+        }
+    } while (op != 6);
 }

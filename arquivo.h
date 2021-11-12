@@ -20,4 +20,4 @@ int lerArquivo(Alunos *aluno, int n);
 
 // void gerarListaRep(Aluno *alunos, int i);
 
-// void sair(Alunos *alunos, int i);
+void fecharPrograma(Alunos *aluno, int n);
