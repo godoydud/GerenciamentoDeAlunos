@@ -20,7 +20,7 @@ void cadastrarAluno(Alunos *aluno, int i)
     scanf("%lf", &aluno[i].trab);
 
     printf("Insira nota PROVA OPTATIVA: ");
-    scanf("%lf", &aluno[i].po);
+    scanf("%lf\n", &aluno[i].po);
 
     if (aluno[i].p1 < aluno[i].po && aluno[i].p1 < aluno[i].p2)
     {
@@ -111,11 +111,11 @@ void gerarListaAp(Alunos *aluno, int n)
     {
         result = strcmp(aluno[i].statusAluno, "Aprovado");
         if (result == 0) {
-            fprintf(arquivo, "%s %s %.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            fprintf(arquivo, "%s %s %5.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
             count++;
         }
     }
-    fprintf(arquivo, "Total: %d", count);
+    fprintf(arquivo, "Total: %d\n", count);
     fclose(arquivo);
 }
 
@@ -136,6 +136,6 @@ void gerarListaRep(Alunos *aluno, int n)
             count++;
         }
     }
-    fprintf(arquivo, "Total: %d", count);
+    fprintf(arquivo, "Total: %d\n", count);
     fclose(arquivo);
 }
