@@ -36,14 +36,14 @@ int main()
         {
             n = lerArquivo(aluno, n);
         }
-        // else if (op == 4)
-        // {
-        //     gerarListaAp();
-        // }
-        // else if (op == 5)
-        // {
-        //     gerarListaRep();
-        // }
+        else if (op == 4)
+        {
+            gerarListaAp(aluno, n);
+        }
+        else if (op == 5)
+        {
+            gerarListaRep(aluno, n);
+        }
         else if (op == 6)
         {
             fecharPrograma(aluno, n);

@@ -1,14 +1,14 @@
 struct Alunos
 {
     char nome[30];
-    char rga[10];
+    char rga[15];
     double p1, p2, po, trab, mf, auxp1, auxp2;
     char statusAluno[15];
 };
 
 void ordenarAlunos(Alunos *aluno, int n);
 
-void calcularNota(Alunos &aluno);
+void calcularNota(Alunos *aluno, int n);
 
 void cadastrarAluno(Alunos *aluno, int i);
 
@@ -16,8 +16,8 @@ void cadastrarAluno(Alunos *aluno, int i);
 
 int lerArquivo(Alunos *aluno, int n);
 
-// void gerarListaAp(Alunos *alunos, int i);
+void gerarListaAp(Alunos *aluno, int n);
 
-// void gerarListaRep(Aluno *alunos, int i);
+void gerarListaRep(Alunos *aluno, int n);
 
 void fecharPrograma(Alunos *aluno, int n);

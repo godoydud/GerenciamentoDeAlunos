@@ -20,6 +20,7 @@ int lerArquivo(Alunos *aluno, int n)
         for(int i=n; feof(arquivo) == 0; i++, count++){
             fscanf(arquivo, " %[^1234567890] %s %lf %lf %lf %lf ", aluno[i].nome, aluno[i].rga, &aluno[i].p1, &aluno[i].p2, &aluno[i].trab, &aluno[i].po);
         }
+        calcularNota(aluno, n+count);
         printf("Alunos lidos: %d\n", count);
         fclose(arquivo);
     }
