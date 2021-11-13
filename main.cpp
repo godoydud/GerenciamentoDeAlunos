@@ -12,7 +12,7 @@ int main()
     do
     {
         // Menu de opcoes
-        printf("Digite a opção desejada:")
+        printf("Digite a opção desejada:\n");
         printf("========= Menu ========\n");
         printf("1)- CADASTRAR ALUNO\n");
         printf("2)- BUSCAR ALUNO\n");                      // verificar
@@ -20,7 +20,7 @@ int main()
         printf("4)- GERAR LISTA APROVADO\n");
         printf("5)- GERAR LISTA REPROVADOS\n");
         printf("6)- FECHAR PROGRAMA\n"); // verificar
-        printf("=======================\n")
+        printf("=======================\n");
 
         // Ler opção
         scanf("%d", &op);

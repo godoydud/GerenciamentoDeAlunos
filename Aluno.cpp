@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include "arquivo.h"
 
 void cadastrarAluno(Alunos *aluno, int i)
@@ -50,7 +51,6 @@ void ordenarAlunos(Alunos *aluno, int n)
 {
     int i, j, min;
     Alunos aux;
-    
 
     for (i = 0; i < n - 1; i++)
     {
@@ -68,7 +68,7 @@ void ordenarAlunos(Alunos *aluno, int n)
 
 void calcularNota(Alunos *aluno, int n)
 {
-    for(int i=0; i<n; i++)
+    for (int i = 0; i < n; i++)
     {
         if (aluno[i].p1 < aluno[i].po && aluno[i].p1 < aluno[i].p2)
         {
@@ -95,9 +95,32 @@ void calcularNota(Alunos *aluno, int n)
     }
 }
 
-// void buscarAluno()
-// {
-// }
+char *toLower(char *s)
+{
+    for (char *p = s; *p; p++)
+        p = tolower(p);
+    return s;
+}
+
+void buscarAluno(Alunos *aluno, int n){
+    char nome[30];
+    int cont;
+
+    for (int i = 0; i < n; i++){
+        char a = toLower(aluno[i].nome);
+        char ab = toLower(nome);
+        if(strstr(a, nome)!=0){
+            printf("%s %.1f %s" ,aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
+            cont++;
+        }
+    }
+    if(cont == 0){
+        printf("Aluno não encontrado.");
+    } else{
+        printf("Número de alunos buscados com sucesso: %d", cont);
+    }
+}
+
 
 void gerarListaAp(Alunos *aluno, int n)
 {
@@ -110,7 +133,8 @@ void gerarListaAp(Alunos *aluno, int n)
     for (int i = 0; i < n; i++)
     {
         result = strcmp(aluno[i].statusAluno, "Aprovado");
-        if (result == 0) {
+        if (result == 0)
+        {
             fprintf(arquivo, "%s %s %5.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
             count++;
         }
