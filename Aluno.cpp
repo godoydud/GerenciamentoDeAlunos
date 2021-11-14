@@ -58,7 +58,7 @@ void ordenarAlunos(Alunos *aluno, int n)
             if (strcmp(aluno[min].nome, aluno[j].nome) > 0)
                 min = j;
             else if(strcmp(aluno[min].nome, aluno[j].nome) == 0){
-                if((int)aluno[min].rga < (int)aluno[j].rga){
+                if(aluno[min].rga < aluno[j].rga){
                     min = j;
                 }
             }
