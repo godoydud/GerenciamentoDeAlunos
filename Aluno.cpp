@@ -21,7 +21,7 @@ void cadastrarAluno(Alunos *aluno, int n)
     scanf("%lf", &aluno[n].trab);
 
     printf("Insira nota PROVA OPTATIVA: ");
-    scanf("%lf\n", &aluno[n].po);
+    scanf("%lf", &aluno[n].po);
 
     if (aluno[n].p1 < aluno[n].po && aluno[n].p1 < aluno[n].p2)
     {
