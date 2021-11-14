@@ -10,9 +10,11 @@ void ordenarAlunos(Alunos *aluno, int n);
 
 void calcularNota(Alunos *aluno, int n);
 
-void cadastrarAluno(Alunos *aluno, int i);
+void cadastrarAluno(Alunos *aluno, int n);
 
-// void buscarAluno(Alunos *alunos, int i);
+void buscarAluno(Alunos *alunos, int n, char* procurado);
+
+void igualar(Alunos *aluno, Alunos *alunoAux, int n);
 
 int lerArquivo(Alunos *aluno, int n);
 

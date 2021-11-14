@@ -3,47 +3,45 @@
 #include <ctype.h>
 #include "arquivo.h"
 
-void cadastrarAluno(Alunos *aluno, int i)
+void cadastrarAluno(Alunos *aluno, int n)
 {
-    printf("Insira nome do aluno: ");
-    scanf(" %[^\n]", aluno[i].nome);
+    printf("\nInsira nome do aluno: ");
+    scanf(" %[^\n]", aluno[n].nome);
 
     printf("Insira RGA do aluno: ");
-    scanf(" %[^\n]", aluno[i].rga);
+    scanf(" %[^\n]", aluno[n].rga);
 
     printf("Insira nota PROVA 01: ");
-    scanf("%lf", &aluno[i].p1);
+    scanf("%lf", &aluno[n].p1);
 
     printf("Insira nota PROVA 02: ");
-    scanf("%lf", &aluno[i].p2);
+    scanf("%lf", &aluno[n].p2);
 
     printf("Insira nota TRABALHO: ");
-    scanf("%lf", &aluno[i].trab);
+    scanf("%lf", &aluno[n].trab);
 
     printf("Insira nota PROVA OPTATIVA: ");
-    scanf("%lf\n", &aluno[i].po);
+    scanf("%lf\n", &aluno[n].po);
 
-    if (aluno[i].p1 < aluno[i].po && aluno[i].p1 < aluno[i].p2)
+    if (aluno[n].p1 < aluno[n].po && aluno[n].p1 < aluno[n].p2)
     {
-        aluno[i].auxp1 = aluno[i].p1;
-        aluno[i].p1 = aluno[i].po;
+        aluno[n].auxp1 = aluno[n].p1;
+        aluno[n].p1 = aluno[n].po;
     }
-    else if (aluno[i].p2 < aluno[i].po && aluno[i].p2 < aluno[i].p1)
+    else if (aluno[n].p2 < aluno[n].po && aluno[n].p2 < aluno[n].p1)
     {
-        aluno[i].auxp2 = aluno[i].p2;
-        aluno[i].p2 = aluno[i].po;
+        aluno[n].auxp2 = aluno[n].p2;
+        aluno[n].p2 = aluno[n].po;
     }
-    aluno[i].mf = (0.35 * aluno[i].p1) + (0.35 * aluno[i].p2) + (0.3 * aluno[i].trab);
+    aluno[n].mf = (0.35 * aluno[n].p1) + (0.35 * aluno[n].p2) + (0.3 * aluno[n].trab);
 
-    if (aluno[i].mf >= 6)
+    if (aluno[n].mf >= 6)
     {
-        // aluno aprovado
-        strcpy(aluno[i].statusAluno, "Aprovado");
+        strcpy(aluno[n].statusAluno, "Aprovado");
     }
     else
     {
-        //aluno reprovado
-        strcpy(aluno[i].statusAluno, "Reprovado");
+        strcpy(aluno[n].statusAluno, "Reprovado");
     }
 }
 
@@ -59,6 +57,11 @@ void ordenarAlunos(Alunos *aluno, int n)
         {
             if (strcmp(aluno[min].nome, aluno[j].nome) > 0)
                 min = j;
+            else if(strcmp(aluno[min].nome, aluno[j].nome) == 0){
+                if((int)aluno[min].rga < (int)aluno[j].rga){
+                    min = j;
+                }
+            }
         }
         aux = aluno[i];
         aluno[i] = aluno[min];
@@ -95,29 +98,38 @@ void calcularNota(Alunos *aluno, int n)
     }
 }
 
-char *toLower(char *s)
+char* tornarMin(char* c)
 {
-    for (char *p = s; *p; p++)
-        p = tolower(p);
-    return s;
+    for (int i = 0; i < strlen(c); i++)
+        c[i] = tolower(c[i]);
+    
+    return c;
 }
 
-void buscarAluno(Alunos *aluno, int n){
-    char nome[30];
-    int cont;
+void buscarAluno(Alunos *aluno, int n, char* procurado){
+    int count = 0;
+    Alunos alunoAux[100];
+    igualar(aluno, alunoAux, n);
 
     for (int i = 0; i < n; i++){
-        char a = toLower(aluno[i].nome);
-        char ab = toLower(nome);
-        if(strstr(a, nome)!=0){
-            printf("%s %.1f %s" ,aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
-            cont++;
+        char* nomeMin = tornarMin(alunoAux[i].nome);
+        char* procuradoMin = tornarMin(procurado);
+
+        if(strstr(nomeMin, procuradoMin) != 0){
+            printf("%s %.1f %s\n",aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
+            count++;
         }
     }
-    if(cont == 0){
-        printf("Aluno não encontrado.");
+    if(count != 0){
+        printf("Alunos encontrados: %d\n", count);
     } else{
-        printf("Número de alunos buscados com sucesso: %d", cont);
+        printf("Nenhum aluno encontrado.\n");
+    }
+}
+
+void igualar(Alunos *aluno, Alunos *alunoAux, int n){
+    for(int i=0; i<n; i++){
+        alunoAux[i] = aluno[i]; 
     }
 }
 
@@ -135,7 +147,7 @@ void gerarListaAp(Alunos *aluno, int n)
         result = strcmp(aluno[i].statusAluno, "Aprovado");
         if (result == 0)
         {
-            fprintf(arquivo, "%s %s %5.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            fprintf(arquivo, "%-30s %-15s %5.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
             count++;
         }
     }
@@ -156,7 +168,7 @@ void gerarListaRep(Alunos *aluno, int n)
         result = strcmp(aluno[i].statusAluno, "Reprovado");
         if (result == 0)
         {
-            fprintf(arquivo, "%s %s %.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
+            fprintf(arquivo, "%-30s %-15s %5.1f\n", aluno[i].nome, aluno[i].rga, aluno[i].mf);
             count++;
         }
     }

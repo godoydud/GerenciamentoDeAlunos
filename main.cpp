@@ -12,14 +12,14 @@ int main()
     do
     {
         // Menu de opcoes
-        printf("Digite a opção desejada:\n");
+        printf("\nDigite a opção desejada:\n");
         printf("========= Menu ========\n");
         printf("1)- CADASTRAR ALUNO\n");
         printf("2)- BUSCAR ALUNO\n");                      // verificar
-        printf("3)- LER ARQUIVO DE LISTAGEM DE ALUNOS\n"); // verificar
+        printf("3)- LER ARQUIVO DE LISTAGEM DE ALUNOS\n");
         printf("4)- GERAR LISTA APROVADO\n");
         printf("5)- GERAR LISTA REPROVADOS\n");
-        printf("6)- FECHAR PROGRAMA\n"); // verificar
+        printf("6)- FECHAR PROGRAMA\n");
         printf("=======================\n");
 
         // Ler opção
@@ -32,7 +32,10 @@ int main()
         }
         else if (op == 2)
         {
-            ordenarAlunos(aluno, n);
+            char procurado[30];
+            printf("\nDigite o nome do aluno: ");
+            scanf(" %[^\n]", procurado);
+            buscarAluno(aluno, n, procurado);
         }
         else if (op == 3)
         {

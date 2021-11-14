@@ -7,7 +7,7 @@ int lerArquivo(Alunos *aluno, int n)
     int count = 0;
     FILE *arquivo;
     char nomearq[30];
-    printf("Digite o nome do arquivo a ser lido:");
+    printf("\nDigite o nome do arquivo a ser lido: ");
     scanf(" %s", &nomearq);
 
     // Lendo o arquivo
