@@ -1,4 +1,9 @@
 # GerenciamentoDeAlunos
+Trabalho desenvolvido pelos alunos: 
+- Eduardo Godoy Fuso
+- Vitor Oliveira Resende Brandão
+
+
 O trabalho prático de nossa disciplina consiste na implementação de um sistema
 para gerenciamento de alunos da disciplina de Empreendedorismo. Cada aluno da
 disciplina possui as seguintes informações armazenadas:
