@@ -116,7 +116,7 @@ void buscarAluno(Alunos *aluno, int n, char* procurado){
         char* procuradoMin = tornarMin(procurado);
 
         if(strstr(nomeMin, procuradoMin) != 0){
-            printf("%s %.1f %s\n",aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
+            printf("%-30s %5.1f %-5s\n",aluno[i].nome, aluno[i].mf, aluno[i].statusAluno);
             count++;
         }
     }

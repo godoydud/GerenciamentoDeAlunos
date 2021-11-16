@@ -1,0 +1,8 @@
+Ana Teixeira da Silva          658756            6.1
+Hudson Johansson               445210           10.0
+Joaquim da Silva Santos        145678            8.2
+Juliana Pereira Trevo          982654            8.6
+Juliana Pereira Trevo          987654            7.0
+Scarlette Johansson            345210            8.6
+Vitor Oliveira                 1234             10.0
+Total: 7
